@@ -1,10 +1,12 @@
-import { useState } from 'react';
-import { trpc } from '../lib/trpc';
+import React, { useState } from 'react';
 import { useNavigate } from 'wouter';
+import { CreditCard, Smartphone, FileText, Check } from 'lucide-react';
+import { trpc } from '../lib/trpc';
 
 export default function Checkout() {
   const navigate = useNavigate();
-  const [paymentMethod, setPaymentMethod] = useState<'credit_card' | 'pix' | 'boleto'>('credit_card');
+  const [step, setStep] = useState(1);
+  const [paymentMethod, setPaymentMethod] = useState('credit-card');
   const [formData, setFormData] = useState({
     street: '',
     number: '',
@@ -47,9 +49,9 @@ export default function Checkout() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-foreground mb-8">Checkout</h1>
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white py-12">
+      <div className="container mx-auto px-4">
+        <h1 className="font-playfair text-4xl font-bold mb-12">Finalizar Compra</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Checkout Form */}
