@@ -1,5 +1,7 @@
+import React from 'react';
+import { Link, useNavigate } from 'wouter';
+import { Trash2, Plus, Minus, ArrowRight } from 'lucide-react';
 import { trpc } from '../lib/trpc';
-import { useNavigate } from 'wouter';
 
 export default function Cart() {
   const navigate = useNavigate();
@@ -38,7 +40,7 @@ export default function Cart() {
     return (
       <div className="min-h-screen bg-background">
         <div className="container mx-auto px-4 py-8">
-          <h1 className="text-4xl font-bold text-foreground mb-8">Carrinho de Compras</h1>
+          <h1 className="font-playfair text-4xl font-bold text-gray-900 mb-8">Carrinho de Compras</h1>
           <div className="text-center py-12">
             <p className="text-muted-foreground mb-4">Seu carrinho está vazio</p>
             <button
@@ -54,9 +56,9 @@ export default function Cart() {
   }
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
-        <h1 className="text-4xl font-bold text-foreground mb-8">Carrinho de Compras</h1>
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+      <div className="container mx-auto px-4 py-12">
+        <h1 className="font-playfair text-4xl font-bold text-gray-900 mb-8">Carrinho de Compras</h1>
 
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Cart Items */}
