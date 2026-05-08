@@ -538,7 +538,7 @@
         name: "Faca Chef Premium",
         desc: "Lâmina de aço inoxidável 25cm",
         price: 189.90,
-        icon: "🔪"
+        image: "/manus-storage/imagem_1bybl8Im_c851cdc5.jpg"
       },
       {
         id: 2,
@@ -552,7 +552,7 @@
         name: "Jogo de Facas 3 Peças",
         desc: "Chef, Paring e Utility",
         price: 349.90,
-        icon: "🔪"
+        image: "/manus-storage/imagem_1YXux4jv_f1bbaf9a.jpg"
       },
       {
         id: 4,
@@ -566,7 +566,7 @@
         name: "Faca Santoku Japonesa",
         desc: "Lâmina ondulada 18cm",
         price: 249.90,
-        icon: "🔪"
+        image: "/manus-storage/imagem_1bybl8Im_c851cdc5.jpg"
       },
       {
         id: 6,
@@ -584,7 +584,7 @@
       const grid = document.getElementById('productsGrid');
       grid.innerHTML = products.map(p => `
         <div class="product-card">
-          <div class="product-image">${p.icon}</div>
+          <div class="product-image" style="${p.image ? `background-image: url('${p.image}'); background-size: cover; background-position: center;` : ''}">${!p.image ? p.icon : ''}</div>
           <div class="product-info">
             <div class="product-name">${p.name}</div>
             <div class="product-desc">${p.desc}</div>
