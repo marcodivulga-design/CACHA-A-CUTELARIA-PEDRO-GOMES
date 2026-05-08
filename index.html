@@ -532,94 +532,710 @@
 
   <script>
     // Produtos
-    const products = [
+const products = [
       {
         id: 1,
-        name: "Faca Chef Premium",
-        desc: "Lâmina de aço inoxidável 25cm",
-        price: 189.90,
-        image: "/manus-storage/faca_01_6eb300f4.jpg"
+        name: "Faca Chef Premium #1",
+        desc: "Lâmina de aço inoxidável - Modelo 1",
+        price: 109.9,
+        image: "/manus-storage/foto_01_HASH.jpg"
       },
       {
         id: 2,
-        name: "Faca Paring Profissional",
-        desc: "Lâmina curva 8cm - Precisão máxima",
-        price: 79.90,
-        image: "/manus-storage/faca_02_6c39abe4.jpg"
+        name: "Faca Paring Profissional #2",
+        desc: "Lâmina de aço inoxidável - Modelo 2",
+        price: 139.9,
+        image: "/manus-storage/foto_02_HASH.jpg"
       },
       {
         id: 3,
-        name: "Jogo de Facas 3 Peças",
-        desc: "Chef, Paring e Utility",
-        price: 349.90,
-        image: "/manus-storage/faca_03_c9092986.jpg"
+        name: "Jogo de Facas 3 Peças #3",
+        desc: "Lâmina de aço inoxidável - Modelo 3",
+        price: 169.9,
+        image: "/manus-storage/foto_03_HASH.jpg"
       },
       {
         id: 4,
-        name: "Faca Santoku Japonesa",
-        desc: "Lâmina ondulada 18cm",
-        price: 249.90,
-        image: "/manus-storage/faca_04_701cd619.jpg"
+        name: "Faca Santoku Japonesa #4",
+        desc: "Lâmina de aço inoxidável - Modelo 4",
+        price: 199.9,
+        image: "/manus-storage/foto_04_HASH.jpg"
       },
       {
         id: 5,
-        name: "Faca Desossa Premium",
-        desc: "Lâmina flexível 15cm",
-        price: 129.90,
-        image: "/manus-storage/faca_05_97c42f40.jpg"
+        name: "Faca Desossa Premium #5",
+        desc: "Lâmina de aço inoxidável - Modelo 5",
+        price: 229.9,
+        image: "/manus-storage/foto_05_HASH.jpg"
       },
       {
         id: 6,
-        name: "Faca Cozinha Gourmet",
-        desc: "Aço inoxidável 20cm",
-        price: 199.90,
-        image: "/manus-storage/faca_06_ba223853.jpg"
+        name: "Faca Cozinha Gourmet #6",
+        desc: "Lâmina de aço inoxidável - Modelo 6",
+        price: 259.9,
+        image: "/manus-storage/foto_06_HASH.jpg"
       },
       {
         id: 7,
-        name: "Faca Churrasco Premium",
-        desc: "Lâmina serrilhada 22cm",
-        price: 159.90,
-        image: "/manus-storage/faca_07_d0ace21a.jpg"
+        name: "Faca Churrasco Premium #7",
+        desc: "Lâmina de aço inoxidável - Modelo 7",
+        price: 289.9,
+        image: "/manus-storage/foto_07_HASH.jpg"
       },
       {
         id: 8,
-        name: "Faca Manteiga Artesanal",
-        desc: "Lâmina serrilhada 12cm",
-        price: 89.90,
-        image: "/manus-storage/faca_08_ca2260c4.jpg"
+        name: "Faca Manteiga Artesanal #8",
+        desc: "Lâmina de aço inoxidável - Modelo 8",
+        price: 319.9,
+        image: "/manus-storage/foto_08_HASH.jpg"
       },
       {
         id: 9,
-        name: "Faca Filé Premium",
-        desc: "Lâmina flexível 20cm",
-        price: 219.90,
-        image: "/manus-storage/faca_09_ef5ef9c3.jpg"
+        name: "Faca Filé Premium #9",
+        desc: "Lâmina de aço inoxidável - Modelo 9",
+        price: 349.9,
+        image: "/manus-storage/foto_09_HASH.jpg"
       },
       {
         id: 10,
-        name: "Faca Pão Profissional",
-        desc: "Lâmina serrilhada 25cm",
-        price: 179.90,
-        image: "/manus-storage/faca_10_347ce0a4.jpg"
+        name: "Faca Pão Profissional #10",
+        desc: "Lâmina de aço inoxidável - Modelo 10",
+        price: 379.9,
+        image: "/manus-storage/foto_10_HASH.jpg"
       },
       {
         id: 11,
-        name: "Faca Legumes Precisão",
-        desc: "Lâmina reta 10cm",
-        price: 69.90,
-        image: "/manus-storage/faca_11_4ad4e808.jpg"
+        name: "Faca Legumes Precisão #11",
+        desc: "Lâmina de aço inoxidável - Modelo 11",
+        price: 409.9,
+        image: "/manus-storage/foto_11_HASH.jpg"
       },
       {
         id: 12,
-        name: "Kit Premium 6 Facas",
-        desc: "Combo completo para chef profissional",
-        price: 899.90,
-        image: "/manus-storage/faca_12_3a461531.jpg"
-      }
+        name: "Kit Premium 6 Facas #12",
+        desc: "Lâmina de aço inoxidável - Modelo 12",
+        price: 439.9,
+        image: "/manus-storage/foto_12_HASH.jpg"
+      },
+      {
+        id: 13,
+        name: "Faca Nakiri Profissional #13",
+        desc: "Lâmina de aço inoxidável - Modelo 13",
+        price: 469.9,
+        image: "/manus-storage/foto_13_HASH.jpg"
+      },
+      {
+        id: 14,
+        name: "Faca Boning Flexível #14",
+        desc: "Lâmina de aço inoxidável - Modelo 14",
+        price: 499.9,
+        image: "/manus-storage/foto_14_HASH.jpg"
+      },
+      {
+        id: 15,
+        name: "Faca Carving Especial #15",
+        desc: "Lâmina de aço inoxidável - Modelo 15",
+        price: 529.9,
+        image: "/manus-storage/foto_15_HASH.jpg"
+      },
+      {
+        id: 16,
+        name: "Faca Butcher Premium #16",
+        desc: "Lâmina de aço inoxidável - Modelo 16",
+        price: 559.9,
+        image: "/manus-storage/foto_16_HASH.jpg"
+      },
+      {
+        id: 17,
+        name: "Faca Utility Versátil #17",
+        desc: "Lâmina de aço inoxidável - Modelo 17",
+        price: 589.9,
+        image: "/manus-storage/foto_17_HASH.jpg"
+      },
+      {
+        id: 18,
+        name: "Faca Petty Japonesa #18",
+        desc: "Lâmina de aço inoxidável - Modelo 18",
+        price: 619.9,
+        image: "/manus-storage/foto_18_HASH.jpg"
+      },
+      {
+        id: 19,
+        name: "Faca Deba Profissional #19",
+        desc: "Lâmina de aço inoxidável - Modelo 19",
+        price: 649.9,
+        image: "/manus-storage/foto_19_HASH.jpg"
+      },
+      {
+        id: 20,
+        name: "Faca Yanagiba Sushi #20",
+        desc: "Lâmina de aço inoxidável - Modelo 20",
+        price: 79.9,
+        image: "/manus-storage/foto_20_HASH.jpg"
+      },
+      {
+        id: 21,
+        name: "Faca Chef Premium #21",
+        desc: "Lâmina de aço inoxidável - Modelo 21",
+        price: 109.9,
+        image: "/manus-storage/foto_21_HASH.jpg"
+      },
+      {
+        id: 22,
+        name: "Faca Paring Profissional #22",
+        desc: "Lâmina de aço inoxidável - Modelo 22",
+        price: 139.9,
+        image: "/manus-storage/foto_22_HASH.jpg"
+      },
+      {
+        id: 23,
+        name: "Jogo de Facas 3 Peças #23",
+        desc: "Lâmina de aço inoxidável - Modelo 23",
+        price: 169.9,
+        image: "/manus-storage/foto_23_HASH.jpg"
+      },
+      {
+        id: 24,
+        name: "Faca Santoku Japonesa #24",
+        desc: "Lâmina de aço inoxidável - Modelo 24",
+        price: 199.9,
+        image: "/manus-storage/foto_24_HASH.jpg"
+      },
+      {
+        id: 25,
+        name: "Faca Desossa Premium #25",
+        desc: "Lâmina de aço inoxidável - Modelo 25",
+        price: 229.9,
+        image: "/manus-storage/foto_25_HASH.jpg"
+      },
+      {
+        id: 26,
+        name: "Faca Cozinha Gourmet #26",
+        desc: "Lâmina de aço inoxidável - Modelo 26",
+        price: 259.9,
+        image: "/manus-storage/foto_26_HASH.jpg"
+      },
+      {
+        id: 27,
+        name: "Faca Churrasco Premium #27",
+        desc: "Lâmina de aço inoxidável - Modelo 27",
+        price: 289.9,
+        image: "/manus-storage/foto_27_HASH.jpg"
+      },
+      {
+        id: 28,
+        name: "Faca Manteiga Artesanal #28",
+        desc: "Lâmina de aço inoxidável - Modelo 28",
+        price: 319.9,
+        image: "/manus-storage/foto_28_HASH.jpg"
+      },
+      {
+        id: 29,
+        name: "Faca Filé Premium #29",
+        desc: "Lâmina de aço inoxidável - Modelo 29",
+        price: 349.9,
+        image: "/manus-storage/foto_29_HASH.jpg"
+      },
+      {
+        id: 30,
+        name: "Faca Pão Profissional #30",
+        desc: "Lâmina de aço inoxidável - Modelo 30",
+        price: 379.9,
+        image: "/manus-storage/foto_30_HASH.jpg"
+      },
+      {
+        id: 31,
+        name: "Faca Legumes Precisão #31",
+        desc: "Lâmina de aço inoxidável - Modelo 31",
+        price: 409.9,
+        image: "/manus-storage/foto_31_HASH.jpg"
+      },
+      {
+        id: 32,
+        name: "Kit Premium 6 Facas #32",
+        desc: "Lâmina de aço inoxidável - Modelo 32",
+        price: 439.9,
+        image: "/manus-storage/foto_32_HASH.jpg"
+      },
+      {
+        id: 33,
+        name: "Faca Nakiri Profissional #33",
+        desc: "Lâmina de aço inoxidável - Modelo 33",
+        price: 469.9,
+        image: "/manus-storage/foto_33_HASH.jpg"
+      },
+      {
+        id: 34,
+        name: "Faca Boning Flexível #34",
+        desc: "Lâmina de aço inoxidável - Modelo 34",
+        price: 499.9,
+        image: "/manus-storage/foto_34_HASH.jpg"
+      },
+      {
+        id: 35,
+        name: "Faca Carving Especial #35",
+        desc: "Lâmina de aço inoxidável - Modelo 35",
+        price: 529.9,
+        image: "/manus-storage/foto_35_HASH.jpg"
+      },
+      {
+        id: 36,
+        name: "Faca Butcher Premium #36",
+        desc: "Lâmina de aço inoxidável - Modelo 36",
+        price: 559.9,
+        image: "/manus-storage/foto_36_HASH.jpg"
+      },
+      {
+        id: 37,
+        name: "Faca Utility Versátil #37",
+        desc: "Lâmina de aço inoxidável - Modelo 37",
+        price: 589.9,
+        image: "/manus-storage/foto_37_HASH.jpg"
+      },
+      {
+        id: 38,
+        name: "Faca Petty Japonesa #38",
+        desc: "Lâmina de aço inoxidável - Modelo 38",
+        price: 619.9,
+        image: "/manus-storage/foto_38_HASH.jpg"
+      },
+      {
+        id: 39,
+        name: "Faca Deba Profissional #39",
+        desc: "Lâmina de aço inoxidável - Modelo 39",
+        price: 649.9,
+        image: "/manus-storage/foto_39_HASH.jpg"
+      },
+      {
+        id: 40,
+        name: "Faca Yanagiba Sushi #40",
+        desc: "Lâmina de aço inoxidável - Modelo 40",
+        price: 79.9,
+        image: "/manus-storage/foto_40_HASH.jpg"
+      },
+      {
+        id: 41,
+        name: "Faca Chef Premium #41",
+        desc: "Lâmina de aço inoxidável - Modelo 41",
+        price: 109.9,
+        image: "/manus-storage/foto_41_HASH.jpg"
+      },
+      {
+        id: 42,
+        name: "Faca Paring Profissional #42",
+        desc: "Lâmina de aço inoxidável - Modelo 42",
+        price: 139.9,
+        image: "/manus-storage/foto_42_HASH.jpg"
+      },
+      {
+        id: 43,
+        name: "Jogo de Facas 3 Peças #43",
+        desc: "Lâmina de aço inoxidável - Modelo 43",
+        price: 169.9,
+        image: "/manus-storage/foto_43_HASH.jpg"
+      },
+      {
+        id: 44,
+        name: "Faca Santoku Japonesa #44",
+        desc: "Lâmina de aço inoxidável - Modelo 44",
+        price: 199.9,
+        image: "/manus-storage/foto_44_HASH.jpg"
+      },
+      {
+        id: 45,
+        name: "Faca Desossa Premium #45",
+        desc: "Lâmina de aço inoxidável - Modelo 45",
+        price: 229.9,
+        image: "/manus-storage/foto_45_HASH.jpg"
+      },
+      {
+        id: 46,
+        name: "Faca Cozinha Gourmet #46",
+        desc: "Lâmina de aço inoxidável - Modelo 46",
+        price: 259.9,
+        image: "/manus-storage/foto_46_HASH.jpg"
+      },
+      {
+        id: 47,
+        name: "Faca Churrasco Premium #47",
+        desc: "Lâmina de aço inoxidável - Modelo 47",
+        price: 289.9,
+        image: "/manus-storage/foto_47_HASH.jpg"
+      },
+      {
+        id: 48,
+        name: "Faca Manteiga Artesanal #48",
+        desc: "Lâmina de aço inoxidável - Modelo 48",
+        price: 319.9,
+        image: "/manus-storage/foto_48_HASH.jpg"
+      },
+      {
+        id: 49,
+        name: "Faca Filé Premium #49",
+        desc: "Lâmina de aço inoxidável - Modelo 49",
+        price: 349.9,
+        image: "/manus-storage/foto_49_HASH.jpg"
+      },
+      {
+        id: 50,
+        name: "Faca Pão Profissional #50",
+        desc: "Lâmina de aço inoxidável - Modelo 50",
+        price: 379.9,
+        image: "/manus-storage/foto_50_HASH.jpg"
+      },
+      {
+        id: 51,
+        name: "Faca Legumes Precisão #51",
+        desc: "Lâmina de aço inoxidável - Modelo 51",
+        price: 409.9,
+        image: "/manus-storage/foto_51_HASH.jpg"
+      },
+      {
+        id: 52,
+        name: "Kit Premium 6 Facas #52",
+        desc: "Lâmina de aço inoxidável - Modelo 52",
+        price: 439.9,
+        image: "/manus-storage/foto_52_HASH.jpg"
+      },
+      {
+        id: 53,
+        name: "Faca Nakiri Profissional #53",
+        desc: "Lâmina de aço inoxidável - Modelo 53",
+        price: 469.9,
+        image: "/manus-storage/foto_53_HASH.jpg"
+      },
+      {
+        id: 54,
+        name: "Faca Boning Flexível #54",
+        desc: "Lâmina de aço inoxidável - Modelo 54",
+        price: 499.9,
+        image: "/manus-storage/foto_54_HASH.jpg"
+      },
+      {
+        id: 55,
+        name: "Faca Carving Especial #55",
+        desc: "Lâmina de aço inoxidável - Modelo 55",
+        price: 529.9,
+        image: "/manus-storage/foto_55_HASH.jpg"
+      },
+      {
+        id: 56,
+        name: "Faca Butcher Premium #56",
+        desc: "Lâmina de aço inoxidável - Modelo 56",
+        price: 559.9,
+        image: "/manus-storage/foto_56_HASH.jpg"
+      },
+      {
+        id: 57,
+        name: "Faca Utility Versátil #57",
+        desc: "Lâmina de aço inoxidável - Modelo 57",
+        price: 589.9,
+        image: "/manus-storage/foto_57_HASH.jpg"
+      },
+      {
+        id: 58,
+        name: "Faca Petty Japonesa #58",
+        desc: "Lâmina de aço inoxidável - Modelo 58",
+        price: 619.9,
+        image: "/manus-storage/foto_58_HASH.jpg"
+      },
+      {
+        id: 59,
+        name: "Faca Deba Profissional #59",
+        desc: "Lâmina de aço inoxidável - Modelo 59",
+        price: 649.9,
+        image: "/manus-storage/foto_59_HASH.jpg"
+      },
+      {
+        id: 60,
+        name: "Faca Yanagiba Sushi #60",
+        desc: "Lâmina de aço inoxidável - Modelo 60",
+        price: 79.9,
+        image: "/manus-storage/foto_60_HASH.jpg"
+      },
+      {
+        id: 61,
+        name: "Faca Chef Premium #61",
+        desc: "Lâmina de aço inoxidável - Modelo 61",
+        price: 109.9,
+        image: "/manus-storage/foto_61_HASH.jpg"
+      },
+      {
+        id: 62,
+        name: "Faca Paring Profissional #62",
+        desc: "Lâmina de aço inoxidável - Modelo 62",
+        price: 139.9,
+        image: "/manus-storage/foto_62_HASH.jpg"
+      },
+      {
+        id: 63,
+        name: "Jogo de Facas 3 Peças #63",
+        desc: "Lâmina de aço inoxidável - Modelo 63",
+        price: 169.9,
+        image: "/manus-storage/foto_63_HASH.jpg"
+      },
+      {
+        id: 64,
+        name: "Faca Santoku Japonesa #64",
+        desc: "Lâmina de aço inoxidável - Modelo 64",
+        price: 199.9,
+        image: "/manus-storage/foto_64_HASH.jpg"
+      },
+      {
+        id: 65,
+        name: "Faca Desossa Premium #65",
+        desc: "Lâmina de aço inoxidável - Modelo 65",
+        price: 229.9,
+        image: "/manus-storage/foto_65_HASH.jpg"
+      },
+      {
+        id: 66,
+        name: "Faca Cozinha Gourmet #66",
+        desc: "Lâmina de aço inoxidável - Modelo 66",
+        price: 259.9,
+        image: "/manus-storage/foto_66_HASH.jpg"
+      },
+      {
+        id: 67,
+        name: "Faca Churrasco Premium #67",
+        desc: "Lâmina de aço inoxidável - Modelo 67",
+        price: 289.9,
+        image: "/manus-storage/foto_67_HASH.jpg"
+      },
+      {
+        id: 68,
+        name: "Faca Manteiga Artesanal #68",
+        desc: "Lâmina de aço inoxidável - Modelo 68",
+        price: 319.9,
+        image: "/manus-storage/foto_68_HASH.jpg"
+      },
+      {
+        id: 69,
+        name: "Faca Filé Premium #69",
+        desc: "Lâmina de aço inoxidável - Modelo 69",
+        price: 349.9,
+        image: "/manus-storage/foto_69_HASH.jpg"
+      },
+      {
+        id: 70,
+        name: "Faca Pão Profissional #70",
+        desc: "Lâmina de aço inoxidável - Modelo 70",
+        price: 379.9,
+        image: "/manus-storage/foto_70_HASH.jpg"
+      },
+      {
+        id: 71,
+        name: "Faca Legumes Precisão #71",
+        desc: "Lâmina de aço inoxidável - Modelo 71",
+        price: 409.9,
+        image: "/manus-storage/foto_71_HASH.jpg"
+      },
+      {
+        id: 72,
+        name: "Kit Premium 6 Facas #72",
+        desc: "Lâmina de aço inoxidável - Modelo 72",
+        price: 439.9,
+        image: "/manus-storage/foto_72_HASH.jpg"
+      },
+      {
+        id: 73,
+        name: "Faca Nakiri Profissional #73",
+        desc: "Lâmina de aço inoxidável - Modelo 73",
+        price: 469.9,
+        image: "/manus-storage/foto_73_HASH.jpg"
+      },
+      {
+        id: 74,
+        name: "Faca Boning Flexível #74",
+        desc: "Lâmina de aço inoxidável - Modelo 74",
+        price: 499.9,
+        image: "/manus-storage/foto_74_HASH.jpg"
+      },
+      {
+        id: 75,
+        name: "Faca Carving Especial #75",
+        desc: "Lâmina de aço inoxidável - Modelo 75",
+        price: 529.9,
+        image: "/manus-storage/foto_75_HASH.jpg"
+      },
+      {
+        id: 76,
+        name: "Faca Butcher Premium #76",
+        desc: "Lâmina de aço inoxidável - Modelo 76",
+        price: 559.9,
+        image: "/manus-storage/foto_76_HASH.jpg"
+      },
+      {
+        id: 77,
+        name: "Faca Utility Versátil #77",
+        desc: "Lâmina de aço inoxidável - Modelo 77",
+        price: 589.9,
+        image: "/manus-storage/foto_77_HASH.jpg"
+      },
+      {
+        id: 78,
+        name: "Faca Petty Japonesa #78",
+        desc: "Lâmina de aço inoxidável - Modelo 78",
+        price: 619.9,
+        image: "/manus-storage/foto_78_HASH.jpg"
+      },
+      {
+        id: 79,
+        name: "Faca Deba Profissional #79",
+        desc: "Lâmina de aço inoxidável - Modelo 79",
+        price: 649.9,
+        image: "/manus-storage/foto_79_HASH.jpg"
+      },
+      {
+        id: 80,
+        name: "Faca Yanagiba Sushi #80",
+        desc: "Lâmina de aço inoxidável - Modelo 80",
+        price: 79.9,
+        image: "/manus-storage/foto_80_HASH.jpg"
+      },
+      {
+        id: 81,
+        name: "Faca Chef Premium #81",
+        desc: "Lâmina de aço inoxidável - Modelo 81",
+        price: 109.9,
+        image: "/manus-storage/foto_81_HASH.jpg"
+      },
+      {
+        id: 82,
+        name: "Faca Paring Profissional #82",
+        desc: "Lâmina de aço inoxidável - Modelo 82",
+        price: 139.9,
+        image: "/manus-storage/foto_82_HASH.jpg"
+      },
+      {
+        id: 83,
+        name: "Jogo de Facas 3 Peças #83",
+        desc: "Lâmina de aço inoxidável - Modelo 83",
+        price: 169.9,
+        image: "/manus-storage/foto_83_HASH.jpg"
+      },
+      {
+        id: 84,
+        name: "Faca Santoku Japonesa #84",
+        desc: "Lâmina de aço inoxidável - Modelo 84",
+        price: 199.9,
+        image: "/manus-storage/foto_84_HASH.jpg"
+      },
+      {
+        id: 85,
+        name: "Faca Desossa Premium #85",
+        desc: "Lâmina de aço inoxidável - Modelo 85",
+        price: 229.9,
+        image: "/manus-storage/foto_85_HASH.jpg"
+      },
+      {
+        id: 86,
+        name: "Faca Cozinha Gourmet #86",
+        desc: "Lâmina de aço inoxidável - Modelo 86",
+        price: 259.9,
+        image: "/manus-storage/foto_86_HASH.jpg"
+      },
+      {
+        id: 87,
+        name: "Faca Churrasco Premium #87",
+        desc: "Lâmina de aço inoxidável - Modelo 87",
+        price: 289.9,
+        image: "/manus-storage/foto_87_HASH.jpg"
+      },
+      {
+        id: 88,
+        name: "Faca Manteiga Artesanal #88",
+        desc: "Lâmina de aço inoxidável - Modelo 88",
+        price: 319.9,
+        image: "/manus-storage/foto_88_HASH.jpg"
+      },
+      {
+        id: 89,
+        name: "Faca Filé Premium #89",
+        desc: "Lâmina de aço inoxidável - Modelo 89",
+        price: 349.9,
+        image: "/manus-storage/foto_89_HASH.jpg"
+      },
+      {
+        id: 90,
+        name: "Faca Pão Profissional #90",
+        desc: "Lâmina de aço inoxidável - Modelo 90",
+        price: 379.9,
+        image: "/manus-storage/foto_90_HASH.jpg"
+      },
+      {
+        id: 91,
+        name: "Faca Legumes Precisão #91",
+        desc: "Lâmina de aço inoxidável - Modelo 91",
+        price: 409.9,
+        image: "/manus-storage/foto_91_HASH.jpg"
+      },
+      {
+        id: 92,
+        name: "Kit Premium 6 Facas #92",
+        desc: "Lâmina de aço inoxidável - Modelo 92",
+        price: 439.9,
+        image: "/manus-storage/foto_92_HASH.jpg"
+      },
+      {
+        id: 93,
+        name: "Faca Nakiri Profissional #93",
+        desc: "Lâmina de aço inoxidável - Modelo 93",
+        price: 469.9,
+        image: "/manus-storage/foto_93_HASH.jpg"
+      },
+      {
+        id: 94,
+        name: "Faca Boning Flexível #94",
+        desc: "Lâmina de aço inoxidável - Modelo 94",
+        price: 499.9,
+        image: "/manus-storage/foto_94_HASH.jpg"
+      },
+      {
+        id: 95,
+        name: "Faca Carving Especial #95",
+        desc: "Lâmina de aço inoxidável - Modelo 95",
+        price: 529.9,
+        image: "/manus-storage/foto_95_HASH.jpg"
+      },
+      {
+        id: 96,
+        name: "Faca Butcher Premium #96",
+        desc: "Lâmina de aço inoxidável - Modelo 96",
+        price: 559.9,
+        image: "/manus-storage/foto_96_HASH.jpg"
+      },
+      {
+        id: 97,
+        name: "Faca Utility Versátil #97",
+        desc: "Lâmina de aço inoxidável - Modelo 97",
+        price: 589.9,
+        image: "/manus-storage/foto_97_HASH.jpg"
+      },
+      {
+        id: 98,
+        name: "Faca Petty Japonesa #98",
+        desc: "Lâmina de aço inoxidável - Modelo 98",
+        price: 619.9,
+        image: "/manus-storage/foto_98_HASH.jpg"
+      },
+      {
+        id: 99,
+        name: "Faca Deba Profissional #99",
+        desc: "Lâmina de aço inoxidável - Modelo 99",
+        price: 649.9,
+        image: "/manus-storage/foto_99_HASH.jpg"
+      },
+      {
+        id: 100,
+        name: "Faca Yanagiba Sushi #100",
+        desc: "Lâmina de aço inoxidável - Modelo 100",
+        price: 79.9,
+        image: "/manus-storage/foto_100_HASH.jpg"
+      },
     ];
 
-    let cart = [];
+        let cart = [];
 
     // Renderizar produtos
     function renderProducts() {
