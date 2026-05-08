@@ -1,4 +1,5 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
+import { Search, Filter, Star, ShoppingCart } from 'lucide-react';
 import { trpc } from '../lib/trpc';
 
 export default function Catalog() {
@@ -32,12 +33,12 @@ export default function Catalog() {
   };
 
   return (
-    <div className="min-h-screen bg-background">
-      <div className="container mx-auto px-4 py-8">
+    <div className="min-h-screen bg-gradient-to-b from-amber-50 to-white">
+      <div className="container mx-auto px-4 py-12">
         {/* Header */}
-        <div className="mb-8">
-          <h1 className="text-4xl font-bold text-foreground mb-2">Catálogo de Facas</h1>
-          <p className="text-muted-foreground">Facas artesanais de qualidade premium</p>
+        <div className="mb-12">
+          <h1 className="font-playfair text-5xl font-bold text-gray-900 mb-2">Catálogo Premium</h1>
+          <p className="text-lg text-gray-600">Cachaças artesanais e cutelaria fina de qualidade excepcional</p>
         </div>
 
         {/* Search and Filters */}
