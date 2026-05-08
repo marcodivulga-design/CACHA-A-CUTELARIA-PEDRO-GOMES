@@ -1,0 +1,86 @@
+{
+  "expo": {
+    "name": "Cachaca Cutelaria",
+    "slug": "cachaca-cutelaria",
+    "version": "1.0.0",
+    "orientation": "portrait",
+    "icon": "./assets/icon.png",
+    "userInterfaceStyle": "light",
+    "splash": {
+      "image": "./assets/splash.png",
+      "resizeMode": "contain",
+      "backgroundColor": "#ffffff"
+    },
+    "assetBundlePatterns": [
+      "**/*"
+    ],
+    "ios": {
+      "supportsTabletMode": true,
+      "bundleIdentifier": "com.marcodivulga.cachacacultelaria",
+      "buildNumber": "1.0.0",
+      "infoPlist": {
+        "NSCameraUsageDescription": "Permitir acesso à câmera para fotos de produtos",
+        "NSPhotoLibraryUsageDescription": "Permitir acesso à galeria de fotos",
+        "NSLocationWhenInUseUsageDescription": "Permitir acesso à localização para entrega"
+      }
+    },
+    "android": {
+      "adaptiveIcon": {
+        "foregroundImage": "./assets/adaptive-icon.png",
+        "backgroundColor": "#ffffff"
+      },
+      "package": "com.marcodivulga.cachacacultelaria",
+      "versionCode": 1,
+      "permissions": [
+        "CAMERA",
+        "READ_EXTERNAL_STORAGE",
+        "WRITE_EXTERNAL_STORAGE",
+        "ACCESS_FINE_LOCATION",
+        "ACCESS_COARSE_LOCATION",
+        "INTERNET",
+        "RECEIVE_BOOT_COMPLETED"
+      ]
+    },
+    "web": {
+      "favicon": "./assets/favicon.png"
+    },
+    "plugins": [
+      [
+        "expo-notifications",
+        {
+          "icon": "./assets/notification-icon.png",
+          "color": "#ffffff"
+        }
+      ],
+      [
+        "expo-local-authentication",
+        {
+          "faceIDPermission": "Allow $(PRODUCT_NAME) to access your face ID"
+        }
+      ],
+      [
+        "expo-location",
+        {
+          "locationAlwaysAndWhenInUsePermissions": "Allow $(PRODUCT_NAME) to use your location"
+        }
+      ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "cachaca-cutelaria-project-id"
+      },
+      "apiUrl": "https://api.cachaca-cutelaria.com",
+      "stripePublishableKey": "pk_live_...",
+      "googleMapsApiKey": "AIzaSy...",
+      "firebaseConfig": {
+        "apiKey": "AIzaSy...",
+        "authDomain": "cachaca-cutelaria.firebaseapp.com",
+        "projectId": "cachaca-cutelaria",
+        "storageBucket": "cachaca-cutelaria.appspot.com",
+        "messagingSenderId": "123456789",
+        "appId": "1:123456789:android:abc123"
+      }
+    },
+    "scheme": "cachaca-cutelaria"
+  }
+}

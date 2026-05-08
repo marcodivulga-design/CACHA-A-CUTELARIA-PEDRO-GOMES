@@ -14,6 +14,9 @@ import OrderConfirmation from './pages/OrderConfirmation';
 import Profile from './pages/Profile';
 import OrderHistory from './pages/OrderHistory';
 import AdminDashboard from './pages/AdminDashboard';
+import { AuthPage } from './pages/AuthPage';
+import { AnalyticsDashboard } from './pages/AnalyticsDashboard';
+import { AnalyticsTracker } from './components/AnalyticsTracker';
 
 export default function App() {
   const { user, isLoading } = useAuth();
@@ -29,6 +32,7 @@ export default function App() {
   return (
     <Router>
       <div className="flex flex-col min-h-screen bg-background">
+        <AnalyticsTracker />
         <Navbar />
         
         <main className="flex-1">
@@ -47,7 +51,14 @@ export default function App() {
           )}
 
           {user?.role === 'admin' && (
-            <Route path="/admin" component={AdminDashboard} />
+            <>
+              <Route path="/admin" component={AdminDashboard} />
+              <Route path="/analytics" component={AnalyticsDashboard} />
+            </>
+          )}
+
+          {!user && (
+            <Route path="/auth" component={AuthPage} />
           )}
         </main>
 
