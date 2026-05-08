@@ -1,1423 +1,664 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Cachaça & Cutelaria Pedro Gomes - Loja Premium</title>
-
-<style>
-:root{
-  --bg:#F6F7FB;
-  --card:#FFFFFF;
-  --text:#111827;
-  --muted:#6B7280;
-  --border:rgba(17,24,39,.10);
-  --shadow:0 10px 28px rgba(17,24,39,.10);
-  --radius:18px;
-
-  --primary:#4CAF8F;
-  --secondary:#6FA8DC;
-  --danger:#E26D5A;
-  --ok:#22C55E;
-
-  --tap:44px;
-  font-family: system-ui,-apple-system,Segoe UI,Roboto,Arial;
-}
-
-*{box-sizing:border-box}
-body{
-  margin:0;
-  background: radial-gradient(1200px 900px at 20% 0%, rgba(111,168,220,.16), transparent 55%),
-              radial-gradient(900px 700px at 90% 20%, rgba(76,175,143,.18), transparent 55%),
-              var(--bg);
-  color:var(--text);
-  padding-bottom:72px;
-}
-
-header{
-  position:sticky;
-  top:0;
-  z-index:10;
-  backdrop-filter: blur(10px);
-  background: rgba(246,247,251,.75);
-  border-bottom:1px solid var(--border);
-}
-
-.header-wrap{
-  max-width:980px;
-  margin:0 auto;
-  padding:14px 14px 12px 14px;
-  display:flex;
-  align-items:center;
-  justify-content:space-between;
-  gap:12px;
-}
-
-.brand{
-  display:flex;
-  align-items:center;
-  gap:10px;
-  min-width:0;
-}
-
-#shopLogo{
-  width:38px;height:38px;border-radius:14px;
-  object-fit:cover;
-  box-shadow: 0 8px 16px rgba(17,24,39,.10);
-  border:1px solid var(--border);
-  display:none;
-}
-
-.titles{min-width:0}
-#shopName{
-  font-weight:800;
-  font-size:14px;
-  line-height:1.1;
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-#titleText{
-  font-weight:700;
-  font-size:12px;
-  color:var(--muted);
-  white-space:nowrap;
-  overflow:hidden;
-  text-overflow:ellipsis;
-}
-
-.chips{
-  display:flex;
-  align-items:center;
-  gap:8px;
-  flex-wrap:wrap;
-  justify-content:flex-end;
-}
-.chip{
-  font-size:12px;
-  padding:6px 10px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background: rgba(255,255,255,.75);
-}
-.chip strong{font-weight:800}
-.chip.ok{border-color: rgba(34,197,94,.35); background: rgba(34,197,94,.10)}
-.chip.warn{border-color: rgba(226,109,90,.35); background: rgba(226,109,90,.10)}
-.chip.primary{border-color: rgba(76,175,143,.35); background: rgba(76,175,143,.10)}
-
-main{
-  max-width:980px;
-  margin:0 auto;
-  padding:14px;
-}
-
-.grid{
-  display:grid;
-  grid-template-columns: repeat(12, 1fr);
-  gap:12px;
-}
-
-.card{
-  grid-column: span 12;
-  background:var(--card);
-  border:1px solid var(--border);
-  border-radius:var(--radius);
-  box-shadow: var(--shadow);
-  padding:14px;
-}
-
-.card h3{
-  margin:0 0 10px 0;
-  font-size:14px;
-  letter-spacing:.2px;
-}
-
-.small{font-size:12px;color:var(--muted)}
-.row{display:flex;gap:10px;flex-wrap:wrap}
-.row > *{flex:1;min-width: 180px}
-
-label{display:block;font-size:12px;color:var(--muted);margin-top:10px}
-input, textarea, select{
-  width:100%;
-  margin-top:6px;
-  padding:12px 12px;
-  border-radius:14px;
-  border:1px solid var(--border);
-  font-size:14px;
-  background:#fff;
-  outline:none;
-}
-textarea{min-height:96px;resize:vertical}
-
-.btn{
-  height:var(--tap);
-  padding:0 14px;
-  border:none;
-  border-radius:14px;
-  cursor:pointer;
-  font-size:14px;
-  font-weight:700;
-  display:inline-flex;
-  align-items:center;
-  justify-content:center;
-  gap:8px;
-  box-shadow: 0 10px 20px rgba(17,24,39,.12);
-}
-.btn:active{transform: translateY(1px)}
-.btn.primary{background:var(--primary);color:#fff}
-.btn.secondary{background:var(--secondary);color:#fff}
-.btn.danger{background:var(--danger);color:#fff}
-.btn.ghost{background:#fff;border:1px solid var(--border);box-shadow:none;color:var(--text)}
-
-.list{
-  display:flex;
-  flex-direction:column;
-  gap:10px;
-}
-.item{
-  padding:12px;
-  border-radius:16px;
-  border:1px solid var(--border);
-  background: rgba(246,247,251,.55);
-}
-
-.kpis{
-  display:grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap:10px;
-}
-.kpi{
-  border:1px solid var(--border);
-  background: rgba(246,247,251,.55);
-  border-radius:16px;
-  padding:12px;
-}
-.kpi .n{font-size:18px;font-weight:900}
-.kpi .t{font-size:12px;color:var(--muted)}
-
-.badge{
-  display:inline-flex;
-  align-items:center;
-  gap:6px;
-  font-size:12px;
-  padding:6px 10px;
-  border-radius:999px;
-  border:1px solid var(--border);
-  background: #fff;
-}
-
-hr.sep{border:none;border-top:1px solid var(--border); margin:12px 0}
-
-nav{
-  position:fixed;
-  bottom:0; left:0; right:0;
-  background: rgba(255,255,255,.92);
-  border-top:1px solid var(--border);
-  backdrop-filter: blur(12px);
-  z-index:20;
-}
-.nav-wrap{
-  max-width:980px;
-  margin:0 auto;
-  display:flex;
-  padding:10px 8px;
-  gap:6px;
-}
-.nav-btn{
-  flex:1;
-  height:52px;
-  border:none;
-  border-radius:16px;
-  background:transparent;
-  cursor:pointer;
-  display:flex;
-  flex-direction:column;
-  align-items:center;
-  justify-content:center;
-  gap:2px;
-  color:var(--muted);
-  font-size:11px;
-  font-weight:700;
-}
-.nav-btn .ico{font-size:18px;line-height:1}
-.nav-btn.active{
-  background: rgba(76,175,143,.12);
-  color: var(--text);
-  border:1px solid rgba(76,175,143,.22);
-}
-
-.banner{
-  position:fixed;
-  left:14px; right:14px; bottom:84px;
-  max-width:980px;
-  margin:0 auto;
-  background:#fff;
-  border:1px solid var(--border);
-  border-radius:18px;
-  box-shadow: var(--shadow);
-  padding:12px;
-  display:none;
-  z-index:30;
-}
-.banner .top{
-  display:flex; align-items:flex-start; justify-content:space-between; gap:12px;
-}
-.banner h4{margin:0;font-size:14px}
-.banner p{margin:6px 0 0 0; font-size:12px;color:var(--muted)}
-.banner .actions{display:flex; gap:8px; margin-top:10px; flex-wrap:wrap}
-</style>
-</head>
-
-<body>
-
-<header>
-  <div class="header-wrap">
-    <div class="brand">
-      <img id="shopLogo" alt="Logo" />
-      <div class="titles">
-        <div id="shopName">Petshop</div>
-        <div id="titleText">Painel</div>
-      </div>
-    </div>
-
-    <div class="chips">
-      <span class="chip primary" id="chipPlan"><strong>Plano</strong>: ...</span>
-      <span class="chip" id="chipTrial">Teste: ...</span>
-      <span class="chip" id="chipRole">Cliente</span>
-    </div>
-  </div>
-</header>
-
-<main id="screen"></main>
-
-<div class="banner" id="installBanner">
-  <div class="top">
-    <div>
-      <h4>Instalar no celular</h4>
-      <p>Quer usar como aplicativo? Coloca na tela inicial e abre em tela cheia.</p>
-    </div>
-    <button class="btn ghost" onclick="dismissInstall()">Fechar</button>
-  </div>
-  <div class="actions">
-    <button class="btn primary" id="btnInstall" onclick="triggerInstall()">Instalar</button>
-    <button class="btn ghost" id="btnIOS" onclick="showIOSHelp()">Como instalar no iPhone</button>
-  </div>
-  <div class="small" id="iosHelp" style="display:none;margin-top:8px;">
-    No iPhone: abra no Safari → toque em Compartilhar → Adicionar à Tela de Início.
-  </div>
-</div>
-
-<nav>
-  <div class="nav-wrap" id="nav"></div>
-</nav>
-
-<script>
-/* =======================
-   CONFIG GERAL
-======================= */
-const STORAGE_KEY = "petdb_v4";
-const ADMIN_KEY = "pg_admin";
-const url = new URL(location.href);
-const isAdmin = url.searchParams.get("admin") === ADMIN_KEY;
-
-const THEMES = [
-  { id:"cuidado_natural", name:"Cuidado Natural", primary:"#4CAF8F", secondary:"#6FA8DC", bg:"#F6F7FB" },
-  { id:"azul_clinico", name:"Azul Clínico", primary:"#3A7BD5", secondary:"#6FA8DC", bg:"#F2F6FB" },
-  { id:"verde_vet", name:"Verde Vet", primary:"#2E8B57", secondary:"#9AD0B3", bg:"#F3F7F5" },
-  { id:"pet_afetivo", name:"Pet Afetivo", primary:"#E67EA3", secondary:"#F4B6C8", bg:"#FFF1F5" },
-  { id:"premium_escuro", name:"Premium Escuro", primary:"#1F2937", secondary:"#C9A24D", bg:"#0F172A" },
-  { id:"clean_minimal", name:"Clean Minimal", primary:"#111827", secondary:"#9CA3AF", bg:"#F9FAFB" },
-  { id:"terracota", name:"Terracota Natural", primary:"#C26D3A", secondary:"#E6B8A2", bg:"#FBF2EC" },
-  { id:"azul_pet", name:"Azul Pet", primary:"#1E90FF", secondary:"#8EC5FC", bg:"#F0F7FF" },
-  { id:"verde_calmo", name:"Verde Calmante", primary:"#6BBF59", secondary:"#B7E4C7", bg:"#F4FBF6" },
-  { id:"rosa_suave", name:"Rosa Suave", primary:"#F2A1B3", secondary:"#F8CAD7", bg:"#FFF6F9" },
-  { id:"areia_mar", name:"Areia & Mar", primary:"#2E86AB", secondary:"#F6C177", bg:"#FFF8ED" },
-  { id:"amadeirado", name:"Amadeirado", primary:"#8B5E34", secondary:"#CBB79B", bg:"#F7F3EE" },
-  { id:"preto_verde", name:"Preto & Verde", primary:"#0F172A", secondary:"#22C55E", bg:"#020617" },
-  { id:"azul_noturno", name:"Azul Noturno", primary:"#1E3A8A", secondary:"#93C5FD", bg:"#0B1220" },
-  { id:"cinza_prof", name:"Cinza Profissional", primary:"#374151", secondary:"#9CA3AF", bg:"#F3F4F6" },
-  { id:"laranja_energia", name:"Laranja Energia", primary:"#F97316", secondary:"#FDBA74", bg:"#FFF7ED" },
-  { id:"lilas", name:"Lilás Calmo", primary:"#8B5CF6", secondary:"#C4B5FD", bg:"#F5F3FF" },
-  { id:"verde_agua", name:"Verde Água", primary:"#14B8A6", secondary:"#99F6E4", bg:"#ECFEFF" },
-  { id:"azul_petroleo", name:"Azul Petróleo", primary:"#0F766E", secondary:"#5EEAD4", bg:"#E6FFFA" },
-  { id:"marrom_creme", name:"Marrom & Creme", primary:"#7C4A2D", secondary:"#E7D8C9", bg:"#FAF6F2" },
-  { id:"pastel_pet", name:"Pastel Pet", primary:"#A5B4FC", secondary:"#FBCFE8", bg:"#F8FAFF" },
-  { id:"verde_floresta", name:"Verde Floresta", primary:"#14532D", secondary:"#86EFAC", bg:"#ECFDF5" },
-  { id:"azul_ceu", name:"Azul Céu", primary:"#38BDF8", secondary:"#BAE6FD", bg:"#F0F9FF" },
-  { id:"classico_branco", name:"Clássico Branco", primary:"#111827", secondary:"#4CAF8F", bg:"#FFFFFF" }
-];
-
-function nowISO(){ return new Date().toISOString(); }
-function daysBetween(aISO, bISO){
-  const a = new Date(aISO).getTime();
-  const b = new Date(bISO).getTime();
-  return Math.floor((b - a) / (1000*60*60*24));
-}
-
-/* =======================
-   BANCO LOCAL
-======================= */
-function defaultDB(){
-  return {
-    version: 4,
-    trial: { startedAt: null },         // set no 1º uso
-    planPaid: "BASIC",                  // plano pago configurado (admin)
-    currentShopId: 1,
-    shops: [{
-      id: 1,
-      name: "Cachaça & Cutelaria Pedro Gomes",
-      phone: "",
-      instagram: "",
-      logo: null,
-      themeId: "cuidado_natural",
-      pin: "" // opcional pro dono alterar
-    }],
-    clients: [], // {id, name, phone}
-    pets: [],    // {id, clientId, name, breed, photo}
-    agenda: [],  // {id, type, petName, date, time, notes}
-    products: [],// {id, name, price, qty}
-    banho: [],   // {id, petName, stage, beforePhoto, afterPhoto, notes, date}
-    hotel: [],   // {id, petName, inDate, outDate, status, notes, photoIn, photoOut}
-    vet: [],     // {id, petName, weight, diag, meds, proc, ret, date}
-    caixa: []    // {id, type, desc, value, date}
-  };
-}
-
-let DB = loadDB();
-function loadDB(){
-  try{
-    const raw = localStorage.getItem(STORAGE_KEY);
-    if(!raw) return defaultDB();
-    const parsed = JSON.parse(raw);
-    // migração simples
-    if(!parsed.version || parsed.version < 4){
-      const d = defaultDB();
-      return Object.assign(d, parsed, {version:4});
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cachaça & Cutelaria Pedro Gomes - Loja Premium</title>
+  <meta name="description" content="Descubra nossa seleção exclusiva de cachaças artesanais e cutelaria fina. Qualidade, tradição e elegância em cada produto.">
+  <meta name="theme-color" content="#92400e">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
     }
-    return parsed;
-  }catch(e){
-    return defaultDB();
-  }
-}
-function saveDB(){
-  localStorage.setItem(STORAGE_KEY, JSON.stringify(DB));
-}
 
-/* =======================
-   TRIAL e PLANO EFETIVO
-======================= */
-function ensureTrial(){
-  if(!DB.trial) DB.trial = {startedAt:null};
-  if(!DB.trial.startedAt){
-    DB.trial.startedAt = nowISO();
-    saveDB();
-  }
-}
-function getEffectivePlan(){
-  ensureTrial();
-  const d = daysBetween(DB.trial.startedAt, nowISO()) + 1; // dia 1 = hoje
-  if(d <= 3) return { plan:"TOP", day:d, phase:"top" };
-  if(d <= 15) return { plan:"BASIC", day:d, phase:"basic15" };
-  return { plan: (DB.planPaid || "BASIC"), day:d, phase:"paid" };
-}
+    :root {
+      --primary: #92400e;
+      --primary-dark: #78350f;
+      --accent: #d97706;
+      --text: #1f2937;
+      --text-light: #6b7280;
+      --bg: #fafaf9;
+      --card: #ffffff;
+      --border: #e5e7eb;
+    }
 
-/* =======================
-   SHOP + THEME
-======================= */
-function getShop(){
-  const id = DB.currentShopId || 1;
-  return DB.shops.find(s => s.id == id) || DB.shops[0];
-}
-function applyTheme(){
-  const shop = getShop();
-  const theme = THEMES.find(t => t.id === (shop?.themeId || "cuidado_natural")) || THEMES[0];
-  document.documentElement.style.setProperty("--primary", theme.primary);
-  document.documentElement.style.setProperty("--secondary", theme.secondary);
-  document.documentElement.style.setProperty("--bg", theme.bg);
-  // ajuste de background em dark themes
-  if(theme.bg && (theme.bg === "#0F172A" || theme.bg === "#020617" || theme.bg === "#0B1220")){
-    document.body.style.background = theme.bg;
-  }
-}
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+      color: var(--text);
+      background: var(--bg);
+      line-height: 1.6;
+    }
 
-/* =======================
-   IMAGEM -> BASE64 REDUZIDA
-======================= */
-function fileToResizedBase64(file, maxW=420, quality=0.85){
-  return new Promise((resolve, reject) => {
-    const img = new Image();
-    const reader = new FileReader();
-    reader.onload = e => { img.src = e.target.result; };
-    reader.onerror = reject;
-    img.onload = () => {
-      const scale = Math.min(1, maxW / img.width);
-      const w = Math.round(img.width * scale);
-      const h = Math.round(img.height * scale);
-      const canvas = document.createElement("canvas");
-      canvas.width = w; canvas.height = h;
-      const ctx = canvas.getContext("2d");
-      ctx.drawImage(img, 0, 0, w, h);
-      const out = canvas.toDataURL("image/jpeg", quality);
-      resolve(out);
-    };
-    img.onerror = reject;
-    reader.readAsDataURL(file);
-  });
-}
+    /* Header */
+    header {
+      background: linear-gradient(135deg, var(--primary) 0%, var(--primary-dark) 100%);
+      color: white;
+      padding: 1rem 0;
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+    }
 
-/* =======================
-   UI BÁSICA
-======================= */
-const screen = document.getElementById("screen");
-function setHeader(tabName){
-  const shop = getShop();
-  document.getElementById("shopName").innerText = shop?.name || "Petshop";
-  document.getElementById("titleText").innerText = tabName;
+    .container {
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 1rem;
+    }
 
-  const img = document.getElementById("shopLogo");
-  if(shop?.logo){
-    img.src = shop.logo;
-    img.style.display = "block";
-  }else{
-    img.style.display = "none";
-  }
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-  const eff = getEffectivePlan();
-  document.getElementById("chipPlan").innerHTML = `<strong>Plano</strong>: ${eff.plan}`;
-  const trialText = eff.phase === "top"
-    ? `Teste TOP (dia ${eff.day}/3)`
-    : eff.phase === "basic15"
-      ? `Básico automático (dia ${eff.day}/15)`
-      : `Ativo (dia ${eff.day})`;
-  document.getElementById("chipTrial").innerText = trialText;
+    .logo {
+      font-size: 1.5rem;
+      font-weight: 800;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
 
-  document.getElementById("chipRole").innerText = isAdmin ? "Admin" : "Cliente";
-  document.getElementById("chipRole").className = "chip " + (isAdmin ? "ok" : "");
-}
+    nav {
+      display: flex;
+      gap: 2rem;
+      align-items: center;
+    }
 
-/* =======================
-   NAVEGAÇÃO POR PLANO
-======================= */
-function allowedTabsByPlan(plan){
-  // TOP = tudo liberado
-  if(plan === "TOP") return ["home","clients","pets","agenda","banho","vet","hotel","caixa","products","portal","content","settings"];
-  if(plan === "MASTER") return ["home","clients","pets","agenda","banho","vet","hotel","caixa","products","portal","content","settings"];
-  if(plan === "PLUS") return ["home","clients","pets","agenda","banho","hotel","caixa","products","portal","content","settings"];
-  if(plan === "PRO") return ["home","clients","pets","agenda","banho","products","portal","content","settings"];
-  return ["home","clients","pets","agenda","products","portal","content","settings"]; // BASIC
-}
+    nav a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
 
-function buildNav(active){
-  const eff = getEffectivePlan();
-  const allowed = allowedTabsByPlan(eff.plan);
+    nav a:hover {
+      opacity: 0.8;
+    }
 
-  const items = [
-    { id:"home", label:"Home", ico:"🏠" },
-    { id:"clients", label:"Tutores", ico:"👤" },
-    { id:"pets", label:"Pets", ico:"🐾" },
-    { id:"agenda", label:"Agenda", ico:"📅" },
-    { id:"banho", label:"Banho", ico:"🛁" },
-    { id:"vet", label:"Vet", ico:"🩺" },
-    { id:"hotel", label:"Hotel", ico:"🏨" },
-    { id:"caixa", label:"Caixa", ico:"💵" },
-    { id:"products", label:"Produtos", ico:"🧺" },
-    { id:"portal", label:"Portal", ico:"📲" },
-    { id:"content", label:"Conteúdo", ico:"📚" },
-    { id:"settings", label:"Ajustes", ico:"⚙️" }
-  ].filter(x => allowed.includes(x.id));
+    .cart-icon {
+      position: relative;
+      cursor: pointer;
+      font-size: 1.5rem;
+    }
 
-  const nav = document.getElementById("nav");
-  nav.innerHTML = items.map(it => `
-    <button class="nav-btn ${active===it.id ? "active":""}" onclick="go('${it.id}')">
-      <div class="ico">${it.ico}</div>
-      <div>${it.label}</div>
-    </button>
-  `).join("");
-}
+    .cart-count {
+      position: absolute;
+      top: -8px;
+      right: -8px;
+      background: var(--accent);
+      color: white;
+      border-radius: 50%;
+      width: 20px;
+      height: 20px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.75rem;
+      font-weight: bold;
+    }
 
-/* =======================
-   TELAS
-======================= */
-function go(tab){
-  const eff = getEffectivePlan();
-  const allowed = allowedTabsByPlan(eff.plan);
-  if(!allowed.includes(tab)){
-    alert("Essa função não está liberada no seu plano agora.");
-    tab = "home";
-  }
-  buildNav(tab);
+    /* Hero */
+    .hero {
+      background: linear-gradient(135deg, rgba(146, 64, 14, 0.95) 0%, rgba(120, 53, 15, 0.95) 100%),
+                  url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><defs><pattern id="grid" width="40" height="40" patternUnits="userSpaceOnUse"><path d="M 40 0 L 0 0 0 40" fill="none" stroke="rgba(255,255,255,0.05)" stroke-width="1"/></pattern></defs><rect width="1200" height="600" fill="url(%23grid)"/></svg>');
+      color: white;
+      padding: 6rem 1rem;
+      text-align: center;
+    }
 
-  const title = ({
-    home:"Painel",
-    clients:"Tutores",
-    pets:"Pets",
-    agenda:"Agenda",
-    banho:"Banho e Tosa",
-    vet:"Veterinário",
-    hotel:"Hotelzinho",
-    caixa:"Caixa",
-    products:"Produtos",
-    portal:"Portal do Tutor",
-    content:"Conteúdo",
-    settings:"Ajustes"
-  })[tab] || "Painel";
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      font-weight: 900;
+    }
 
-  applyTheme();
-  setHeader(title);
+    .hero p {
+      font-size: 1.25rem;
+      margin-bottom: 2rem;
+      opacity: 0.95;
+    }
 
-  if(tab==="home") return screenHome();
-  if(tab==="clients") return screenClients();
-  if(tab==="pets") return screenPets();
-  if(tab==="agenda") return screenAgenda();
-  if(tab==="banho") return screenBanho();
-  if(tab==="vet") return screenVet();
-  if(tab==="hotel") return screenHotel();
-  if(tab==="caixa") return screenCaixa();
-  if(tab==="products") return screenProducts();
-  if(tab==="portal") return screenPortal();
-  if(tab==="content") return screenContent();
-  if(tab==="settings") return screenSettings();
-}
+    .cta-buttons {
+      display: flex;
+      gap: 1rem;
+      justify-content: center;
+      flex-wrap: wrap;
+    }
 
-function screenHome(){
-  const eff = getEffectivePlan();
-  const shop = getShop();
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card" style="grid-column: span 12;">
-        <h3>Resumo rápido</h3>
-        <div class="kpis">
-          <div class="kpi"><div class="n">${DB.clients.length}</div><div class="t">Tutores</div></div>
-          <div class="kpi"><div class="n">${DB.pets.length}</div><div class="t">Pets</div></div>
-          <div class="kpi"><div class="n">${DB.agenda.length}</div><div class="t">Agendamentos</div></div>
-          <div class="kpi"><div class="n">${DB.products.length}</div><div class="t">Produtos</div></div>
+    .btn {
+      padding: 0.75rem 2rem;
+      border: none;
+      border-radius: 0.5rem;
+      font-size: 1rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      text-decoration: none;
+      display: inline-block;
+      font-weight: 600;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: white;
+    }
+
+    .btn-primary:hover {
+      background: #d97706;
+      transform: translateY(-2px);
+      box-shadow: 0 4px 12px rgba(217, 119, 6, 0.3);
+    }
+
+    .btn-secondary {
+      background: white;
+      color: var(--primary);
+      border: 2px solid white;
+    }
+
+    .btn-secondary:hover {
+      background: transparent;
+      color: white;
+    }
+
+    /* Products Section */
+    .section {
+      padding: 4rem 1rem;
+    }
+
+    .section-title {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+      text-align: center;
+      color: var(--primary);
+    }
+
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 2rem;
+      margin-bottom: 2rem;
+    }
+
+    .product-card {
+      background: var(--card);
+      border-radius: 0.75rem;
+      overflow: hidden;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      transition: all 0.3s;
+      border: 1px solid var(--border);
+    }
+
+    .product-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 8px 16px rgba(0,0,0,0.15);
+    }
+
+    .product-image {
+      width: 100%;
+      height: 200px;
+      background: linear-gradient(135deg, #f3e8ff 0%, #fce7f3 100%);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 3rem;
+    }
+
+    .product-info {
+      padding: 1.5rem;
+    }
+
+    .product-name {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .product-desc {
+      font-size: 0.9rem;
+      color: var(--text-light);
+      margin-bottom: 1rem;
+    }
+
+    .product-footer {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    .product-price {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: var(--accent);
+    }
+
+    .add-to-cart {
+      background: var(--primary);
+      color: white;
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      transition: all 0.3s;
+      font-weight: 600;
+    }
+
+    .add-to-cart:hover {
+      background: var(--primary-dark);
+    }
+
+    /* Features */
+    .features {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 2rem;
+      margin-top: 3rem;
+    }
+
+    .feature {
+      text-align: center;
+      padding: 2rem;
+      background: var(--card);
+      border-radius: 0.75rem;
+      border: 1px solid var(--border);
+    }
+
+    .feature-icon {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .feature-title {
+      font-size: 1.1rem;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+      color: var(--primary);
+    }
+
+    .feature-desc {
+      color: var(--text-light);
+      font-size: 0.9rem;
+    }
+
+    /* Footer */
+    footer {
+      background: var(--primary);
+      color: white;
+      padding: 3rem 1rem;
+      text-align: center;
+    }
+
+    .footer-content {
+      max-width: 1200px;
+      margin: 0 auto;
+    }
+
+    .footer-links {
+      display: flex;
+      justify-content: center;
+      gap: 2rem;
+      margin-bottom: 2rem;
+      flex-wrap: wrap;
+    }
+
+    .footer-links a {
+      color: white;
+      text-decoration: none;
+      transition: opacity 0.3s;
+    }
+
+    .footer-links a:hover {
+      opacity: 0.8;
+    }
+
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.2);
+      padding-top: 2rem;
+      color: rgba(255,255,255,0.8);
+    }
+
+    /* Cart Modal */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: rgba(0,0,0,0.5);
+      z-index: 1000;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .modal.active {
+      display: flex;
+    }
+
+    .modal-content {
+      background: white;
+      border-radius: 0.75rem;
+      padding: 2rem;
+      max-width: 500px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .modal-header {
+      font-size: 1.5rem;
+      font-weight: 700;
+      margin-bottom: 1.5rem;
+      color: var(--primary);
+    }
+
+    .cart-item {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 1rem;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .cart-item-name {
+      font-weight: 600;
+    }
+
+    .cart-item-price {
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    .cart-total {
+      font-size: 1.25rem;
+      font-weight: 700;
+      margin: 2rem 0;
+      text-align: right;
+      color: var(--primary);
+    }
+
+    .close-btn {
+      background: var(--border);
+      border: none;
+      padding: 0.5rem 1rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      margin-right: 0.5rem;
+    }
+
+    .checkout-btn {
+      background: var(--accent);
+      color: white;
+      border: none;
+      padding: 0.75rem 1.5rem;
+      border-radius: 0.375rem;
+      cursor: pointer;
+      font-weight: 600;
+      width: 100%;
+    }
+
+    .checkout-btn:hover {
+      background: #d97706;
+    }
+
+    @media (max-width: 768px) {
+      .hero h1 {
+        font-size: 2rem;
+      }
+
+      nav {
+        gap: 1rem;
+      }
+
+      .products-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Header -->
+  <header>
+    <div class="container">
+      <div class="header-content">
+        <div class="logo">
+          🍾🔪 Cachaça & Cutelaria
         </div>
-        <hr class="sep">
-        <div class="row">
-          <span class="badge">🏷️ Loja: <b>${shop?.name||""}</b></span>
-          <span class="badge">📌 Plano efetivo: <b>${eff.plan}</b></span>
-          <span class="badge">🗓️ Dia: <b>${eff.day}</b></span>
-        </div>
+        <nav>
+          <a href="#catalogo">Catálogo</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#contato">Contato</a>
+          <div class="cart-icon" onclick="toggleCart()">
+            🛒
+            <span class="cart-count" id="cartCount">0</span>
+          </div>
+        </nav>
       </div>
+    </div>
+  </header>
 
-      <div class="card" style="grid-column: span 12;">
-        <h3>Ações rápidas</h3>
-        <div class="row">
-          <button class="btn primary" onclick="go('clients')">👤 Novo tutor</button>
-          <button class="btn secondary" onclick="go('pets')">🐾 Novo pet</button>
-          <button class="btn ghost" onclick="go('agenda')">📅 Agendar</button>
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="container">
+      <h1>Cachaça & Cutelaria Premium</h1>
+      <p>Descubra nossa seleção exclusiva de cachaças artesanais e cutelaria fina. Qualidade, tradição e elegância em cada produto.</p>
+      <div class="cta-buttons">
+        <a href="#catalogo" class="btn btn-primary">Explorar Catálogo</a>
+        <a href="#sobre" class="btn btn-secondary">Saiba Mais</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products Section -->
+  <section class="section" id="catalogo">
+    <div class="container">
+      <h2 class="section-title">Nossos Produtos</h2>
+      <div class="products-grid" id="productsGrid">
+        <!-- Produtos serão inseridos aqui via JavaScript -->
+      </div>
+    </div>
+  </section>
+
+  <!-- Features Section -->
+  <section class="section" id="sobre" style="background: var(--bg);">
+    <div class="container">
+      <h2 class="section-title">Por que escolher Cachaça & Cutelaria?</h2>
+      <div class="features">
+        <div class="feature">
+          <div class="feature-icon">🏆</div>
+          <div class="feature-title">Qualidade Premium</div>
+          <div class="feature-desc">Produtos selecionados com rigor e cuidado artesanal</div>
         </div>
-        <div class="small" style="margin-top:10px">
-          Dica: no celular, instale na tela inicial pra ficar igual aplicativo.
+        <div class="feature">
+          <div class="feature-icon">🌿</div>
+          <div class="feature-title">Tradição Brasileira</div>
+          <div class="feature-desc">Cachaças e cutelaria que honram a cultura local</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">✨</div>
+          <div class="feature-title">Elegância Garantida</div>
+          <div class="feature-desc">Perfeito para presentear ou colecionar</div>
+        </div>
+        <div class="feature">
+          <div class="feature-icon">🚚</div>
+          <div class="feature-title">Entrega Rápida</div>
+          <div class="feature-desc">Receba seus pedidos com segurança e rapidez</div>
         </div>
       </div>
     </div>
-  `;
-}
+  </section>
 
-function screenClients(){
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <h3>Novo tutor</h3>
-        <input id="cname" placeholder="Nome do tutor">
-        <input id="cphone" placeholder="Telefone / WhatsApp">
-        <div class="row" style="margin-top:10px">
-          <button class="btn primary" onclick="addClient()">Salvar</button>
-          <button class="btn ghost" onclick="go('home')">Voltar</button>
-        </div>
+  <!-- Contact Section -->
+  <section class="section" id="contato">
+    <div class="container">
+      <h2 class="section-title">Entre em Contato</h2>
+      <div style="text-align: center; color: var(--text-light);">
+        <p>📧 Email: contato@cachacaecutelaria.com.br</p>
+        <p>📱 WhatsApp: (XX) XXXXX-XXXX</p>
+        <p>📍 Endereço: Rua Principal, 123 - Cidade, Estado</p>
       </div>
+    </div>
+  </section>
 
-      <div class="card">
-        <h3>Lista</h3>
-        <div class="list">
-          ${DB.clients.map(c=>`
-            <div class="item">
-              <b>${escapeHtml(c.name)}</b><br>
-              <span class="small">${escapeHtml(c.phone||"")}</span>
+  <!-- Footer -->
+  <footer>
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="#catalogo">Catálogo</a>
+        <a href="#sobre">Sobre</a>
+        <a href="#contato">Contato</a>
+        <a href="#">Políticas</a>
+      </div>
+      <div class="footer-bottom">
+        <p>&copy; 2026 Cachaça & Cutelaria Pedro Gomes. Todos os direitos reservados.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Cart Modal -->
+  <div class="modal" id="cartModal">
+    <div class="modal-content">
+      <div class="modal-header">🛒 Seu Carrinho</div>
+      <div id="cartItems"></div>
+      <div class="cart-total">Total: R$ <span id="cartTotal">0.00</span></div>
+      <div style="display: flex; gap: 1rem;">
+        <button class="close-btn" onclick="toggleCart()">Fechar</button>
+        <button class="checkout-btn" onclick="checkout()">Finalizar Compra</button>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Produtos
+    const products = [
+      {
+        id: 1,
+        name: "Faca Chef Premium",
+        desc: "Lâmina de aço inoxidável 25cm",
+        price: 189.90,
+        icon: "🔪"
+      },
+      {
+        id: 2,
+        name: "Cachaça Artesanal Ouro",
+        desc: "Envelhecida 5 anos em carvalho",
+        price: 79.90,
+        icon: "🍾"
+      },
+      {
+        id: 3,
+        name: "Jogo de Facas 3 Peças",
+        desc: "Chef, Paring e Utility",
+        price: 349.90,
+        icon: "🔪"
+      },
+      {
+        id: 4,
+        name: "Cachaça Premium Cristal",
+        desc: "Destilada artesanalmente",
+        price: 99.90,
+        icon: "🍾"
+      },
+      {
+        id: 5,
+        name: "Faca Santoku Japonesa",
+        desc: "Lâmina ondulada 18cm",
+        price: 249.90,
+        icon: "🔪"
+      },
+      {
+        id: 6,
+        name: "Kit Cachaça + Faca",
+        desc: "Combo especial presenteável",
+        price: 199.90,
+        icon: "🎁"
+      }
+    ];
+
+    let cart = [];
+
+    // Renderizar produtos
+    function renderProducts() {
+      const grid = document.getElementById('productsGrid');
+      grid.innerHTML = products.map(p => `
+        <div class="product-card">
+          <div class="product-image">${p.icon}</div>
+          <div class="product-info">
+            <div class="product-name">${p.name}</div>
+            <div class="product-desc">${p.desc}</div>
+            <div class="product-footer">
+              <div class="product-price">R$ ${p.price.toFixed(2)}</div>
+              <button class="add-to-cart" onclick="addToCart(${p.id})">+</button>
             </div>
-          `).join("") || `<div class="small">Ainda sem tutores cadastrados.</div>`}
+          </div>
         </div>
-      </div>
-    </div>
-  `;
-}
-function addClient(){
-  const name = (document.getElementById("cname").value||"").trim();
-  if(!name) return alert("Coloque o nome do tutor.");
-  const phone = (document.getElementById("cphone").value||"").trim();
-  DB.clients.push({id:Date.now(), name, phone});
-  saveDB(); go("clients");
-}
+      `).join('');
+    }
 
-function screenPets(){
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <h3>Novo pet</h3>
-        <label>Tutor</label>
-        <select id="petClient">
-          ${DB.clients.map(c=>`<option value="${c.id}">${escapeHtml(c.name)}</option>`).join("")}
-        </select>
+    // Adicionar ao carrinho
+    function addToCart(productId) {
+      const product = products.find(p => p.id === productId);
+      const existing = cart.find(c => c.id === productId);
+      
+      if (existing) {
+        existing.qty++;
+      } else {
+        cart.push({ ...product, qty: 1 });
+      }
+      
+      updateCart();
+    }
 
-        <label>Nome do pet</label>
-        <input id="petName" placeholder="Ex: Thor, Mel, Luna">
-
-        <label>Raça</label>
-        <input id="petBreed" placeholder="Ex: Shih-tzu, Vira-lata, Pastor Alemão">
-
-        <label>Foto do pet (opcional)</label>
-        <input type="file" id="petPhoto" accept="image/*">
-
-        <div class="row" style="margin-top:10px">
-          <button class="btn primary" onclick="addPet()">Salvar</button>
-          <button class="btn ghost" onclick="go('home')">Voltar</button>
-        </div>
-
-        <div class="small" style="margin-top:10px">
-          Dica: foto pequena é melhor. O sistema reduz automaticamente.
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Pets cadastrados</h3>
-        <div class="list">
-          ${DB.pets.map(p=>`
-            <div class="item" style="display:flex;gap:12px;align-items:center;">
-              <div style="width:46px;height:46px;border-radius:16px;border:1px solid var(--border);overflow:hidden;background:#fff;flex:0 0 auto;">
-                ${p.photo ? `<img src="${p.photo}" style="width:46px;height:46px;object-fit:cover;">` : `<div class="small" style="padding:14px;text-align:center;">🐾</div>`}
-              </div>
-              <div style="min-width:0;">
-                <b>${escapeHtml(p.name)}</b> <span class="small">(${escapeHtml(p.breed||"")})</span><br>
-                <span class="small">Tutor: ${escapeHtml(getClientName(p.clientId))}</span>
-              </div>
+    // Atualizar carrinho
+    function updateCart() {
+      document.getElementById('cartCount').textContent = cart.reduce((sum, item) => sum + item.qty, 0);
+      
+      const cartItems = document.getElementById('cartItems');
+      if (cart.length === 0) {
+        cartItems.innerHTML = '<p style="text-align: center; color: var(--text-light);">Carrinho vazio</p>';
+      } else {
+        cartItems.innerHTML = cart.map(item => `
+          <div class="cart-item">
+            <div>
+              <div class="cart-item-name">${item.name}</div>
+              <small style="color: var(--text-light);">Qtd: ${item.qty}</small>
             </div>
-          `).join("") || `<div class="small">Ainda sem pets cadastrados.</div>`}
-        </div>
-      </div>
-    </div>
-  `;
-}
-async function addPet(){
-  if(DB.clients.length === 0) return alert("Cadastre um tutor primeiro.");
-  const clientId = Number(document.getElementById("petClient").value);
-  const name = (document.getElementById("petName").value||"").trim();
-  if(!name) return alert("Coloque o nome do pet.");
-  const breed = (document.getElementById("petBreed").value||"").trim();
-  const file = document.getElementById("petPhoto").files?.[0];
-  let photo = null;
-  if(file) photo = await fileToResizedBase64(file, 520, 0.85);
-
-  DB.pets.push({id:Date.now(), clientId, name, breed, photo});
-  saveDB(); go("pets");
-}
-function getClientName(id){
-  return (DB.clients.find(c=>c.id==id)?.name) || "Não informado";
-}
-
-function screenAgenda(){
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <h3>Novo agendamento</h3>
-        <label>Tipo</label>
-        <select id="atype">
-          <option>Banho</option>
-          <option>Tosa</option>
-          <option>Banho + Tosa</option>
-          <option>Consulta</option>
-          <option>Retorno</option>
-        </select>
-
-        <label>Pet</label>
-        <input id="apet" placeholder="Nome do pet">
-
-        <div class="row">
-          <div>
-            <label>Data</label>
-            <input type="date" id="adate">
+            <div class="cart-item-price">R$ ${(item.price * item.qty).toFixed(2)}</div>
           </div>
-          <div>
-            <label>Hora</label>
-            <input type="time" id="atime">
-          </div>
-        </div>
-
-        <label>Observações</label>
-        <textarea id="anotes" placeholder="Ex: alérgico, não gosta de secador, etc."></textarea>
-
-        <div class="row" style="margin-top:10px">
-          <button class="btn primary" onclick="addAgenda()">Salvar</button>
-          <button class="btn ghost" onclick="go('home')">Voltar</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Agendamentos</h3>
-        <div class="list">
-          ${DB.agenda.slice().reverse().map(a=>`
-            <div class="item">
-              <b>${escapeHtml(a.type)}</b> • ${escapeHtml(a.petName)}<br>
-              <span class="small">${escapeHtml(a.date)} ${escapeHtml(a.time)}</span>
-              ${a.notes ? `<div class="small" style="margin-top:6px">${escapeHtml(a.notes)}</div>`:""}
-            </div>
-          `).join("") || `<div class="small">Nenhum agendamento ainda.</div>`}
-        </div>
-      </div>
-    </div>
-  `;
-}
-function addAgenda(){
-  const type = document.getElementById("atype").value;
-  const petName = (document.getElementById("apet").value||"").trim();
-  if(!petName) return alert("Coloque o nome do pet.");
-  const date = document.getElementById("adate").value || "";
-  const time = document.getElementById("atime").value || "";
-  const notes = (document.getElementById("anotes").value||"").trim();
-
-  DB.agenda.push({id:Date.now(), type, petName, date, time, notes});
-  saveDB(); go("agenda");
-}
-
-function screenBanho(){
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <h3>Registro de Banho/Tosa</h3>
-        <label>Pet</label>
-        <input id="bpet" placeholder="Nome do pet">
-
-        <label>Etapa</label>
-        <select id="bstage">
-          <option>Recebido</option>
-          <option>Em banho</option>
-          <option>Em tosa</option>
-          <option>Finalizando</option>
-          <option>Pronto</option>
-        </select>
-
-        <label>Foto antes (opcional)</label>
-        <input type="file" id="bbefore" accept="image/*">
-
-        <label>Foto depois (opcional)</label>
-        <input type="file" id="bafter" accept="image/*">
-
-        <label>Observações</label>
-        <textarea id="bnotes" placeholder="Ex: pedir para não cortar muito, etc."></textarea>
-
-        <div class="row" style="margin-top:10px">
-          <button class="btn primary" onclick="addBanho()">Salvar</button>
-          <button class="btn ghost" onclick="go('home')">Voltar</button>
-        </div>
-        <div class="small" style="margin-top:10px">Antes e depois vende muito no WhatsApp e no Instagram.</div>
-      </div>
-
-      <div class="card">
-        <h3>Últimos registros</h3>
-        <div class="list">
-          ${DB.banho.slice().reverse().map(r=>`
-            <div class="item">
-              <b>${escapeHtml(r.petName)}</b> <span class="badge">${escapeHtml(r.stage)}</span><br>
-              <span class="small">${escapeHtml(r.date||"")}</span>
-              ${r.notes ? `<div class="small" style="margin-top:6px">${escapeHtml(r.notes)}</div>`:""}
-            </div>
-          `).join("") || `<div class="small">Ainda sem registros.</div>`}
-        </div>
-      </div>
-    </div>
-  `;
-}
-async function addBanho(){
-  const petName = (document.getElementById("bpet").value||"").trim();
-  if(!petName) return alert("Coloque o nome do pet.");
-  const stage = document.getElementById("bstage").value;
-  const notes = (document.getElementById("bnotes").value||"").trim();
-  const f1 = document.getElementById("bbefore").files?.[0];
-  const f2 = document.getElementById("bafter").files?.[0];
-  const beforePhoto = f1 ? await fileToResizedBase64(f1, 720, 0.85) : null;
-  const afterPhoto = f2 ? await fileToResizedBase64(f2, 720, 0.85) : null;
-
-  DB.banho.push({id:Date.now(), petName, stage, beforePhoto, afterPhoto, notes, date:new Date().toLocaleDateString("pt-BR")});
-  saveDB(); go("banho");
-}
-
-function screenVet(){
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <h3>Ficha Veterinária</h3>
-        <label>Pet</label>
-        <input id="vpet" placeholder="Nome do pet">
-
-        <div class="row">
-          <div>
-            <label>Peso</label>
-            <input id="vweight" placeholder="Ex: 8,2 kg">
-          </div>
-          <div>
-            <label>Data</label>
-            <input type="date" id="vdate">
-          </div>
-        </div>
-
-        <label>Diagnóstico (descrição)</label>
-        <textarea id="vdiag" placeholder="Descrição do caso"></textarea>
-
-        <label>Medicamentos / Orientações</label>
-        <textarea id="vmeds" placeholder="Orientações gerais e medicamentos"></textarea>
-
-        <label>Procedimentos</label>
-        <textarea id="vproc" placeholder="Exames, curativos, etc."></textarea>
-
-        <label>Retorno</label>
-        <input type="date" id="vret">
-
-        <div class="row" style="margin-top:10px">
-          <button class="btn primary" onclick="addVet()">Salvar</button>
-          <button class="btn ghost" onclick="go('home')">Voltar</button>
-        </div>
-
-        <div class="small" style="margin-top:10px">
-          Observação: este módulo é para registro interno. Evite prometer diagnóstico por conteúdo.
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Histórico (últimos)</h3>
-        <div class="list">
-          ${DB.vet.slice().reverse().map(v=>`
-            <div class="item">
-              <b>${escapeHtml(v.petName)}</b> <span class="small">${escapeHtml(v.date||"")}</span><br>
-              <span class="small">Peso: ${escapeHtml(v.weight||"-")}</span>
-            </div>
-          `).join("") || `<div class="small">Ainda sem fichas.</div>`}
-        </div>
-      </div>
-    </div>
-  `;
-}
-function addVet(){
-  const petName = (document.getElementById("vpet").value||"").trim();
-  if(!petName) return alert("Coloque o nome do pet.");
-  DB.vet.push({
-    id:Date.now(),
-    petName,
-    weight:(document.getElementById("vweight").value||"").trim(),
-    date:(document.getElementById("vdate").value||"").trim(),
-    diag:(document.getElementById("vdiag").value||"").trim(),
-    meds:(document.getElementById("vmeds").value||"").trim(),
-    proc:(document.getElementById("vproc").value||"").trim(),
-    ret:(document.getElementById("vret").value||"").trim()
-  });
-  saveDB(); go("vet");
-}
-
-function screenHotel(){
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <h3>Hotelzinho</h3>
-        <label>Pet</label>
-        <input id="hpet" placeholder="Nome do pet">
-
-        <div class="row">
-          <div>
-            <label>Check-in</label>
-            <input type="date" id="hin">
-          </div>
-          <div>
-            <label>Check-out</label>
-            <input type="date" id="hout">
-          </div>
-        </div>
-
-        <label>Status</label>
-        <select id="hstatus">
-          <option>Hospedado</option>
-          <option>Saída programada</option>
-          <option>Finalizado</option>
-        </select>
-
-        <label>Foto check-in (opcional)</label>
-        <input type="file" id="hphotoIn" accept="image/*">
-
-        <label>Foto check-out (opcional)</label>
-        <input type="file" id="hphotoOut" accept="image/*">
-
-        <label>Observações</label>
-        <textarea id="hnotes" placeholder="Ração, remédio, comportamento..."></textarea>
-
-        <div class="row" style="margin-top:10px">
-          <button class="btn primary" onclick="addHotel()">Salvar</button>
-          <button class="btn ghost" onclick="go('home')">Voltar</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Registros</h3>
-        <div class="list">
-          ${DB.hotel.slice().reverse().map(h=>`
-            <div class="item">
-              <b>${escapeHtml(h.petName)}</b> <span class="badge">${escapeHtml(h.status)}</span><br>
-              <span class="small">Entrada: ${escapeHtml(h.inDate||"-")} • Saída: ${escapeHtml(h.outDate||"-")}</span>
-            </div>
-          `).join("") || `<div class="small">Sem hospedagens ainda.</div>`}
-        </div>
-      </div>
-    </div>
-  `;
-}
-async function addHotel(){
-  const petName = (document.getElementById("hpet").value||"").trim();
-  if(!petName) return alert("Coloque o nome do pet.");
-  const inDate = document.getElementById("hin").value || "";
-  const outDate = document.getElementById("hout").value || "";
-  const status = document.getElementById("hstatus").value;
-  const notes = (document.getElementById("hnotes").value||"").trim();
-
-  const f1 = document.getElementById("hphotoIn").files?.[0];
-  const f2 = document.getElementById("hphotoOut").files?.[0];
-  const photoIn = f1 ? await fileToResizedBase64(f1, 720, 0.85) : null;
-  const photoOut = f2 ? await fileToResizedBase64(f2, 720, 0.85) : null;
-
-  DB.hotel.push({id:Date.now(), petName, inDate, outDate, status, notes, photoIn, photoOut});
-  saveDB(); go("hotel");
-}
-
-function screenCaixa(){
-  const totalIn = DB.caixa.filter(x=>x.type==="Entrada").reduce((a,b)=>a+Number(b.value||0),0);
-  const totalOut = DB.caixa.filter(x=>x.type==="Saída").reduce((a,b)=>a+Number(b.value||0),0);
-  const saldo = totalIn - totalOut;
-
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <h3>Caixa do dia</h3>
-        <div class="row">
-          <span class="badge">✅ Entradas: <b>R$ ${fmt(totalIn)}</b></span>
-          <span class="badge">🧾 Saídas: <b>R$ ${fmt(totalOut)}</b></span>
-          <span class="badge">💰 Saldo: <b>R$ ${fmt(saldo)}</b></span>
-        </div>
-
-        <hr class="sep">
-        <label>Tipo</label>
-        <select id="ctype">
-          <option>Entrada</option>
-          <option>Saída</option>
-        </select>
-
-        <label>Descrição</label>
-        <input id="cdesc" placeholder="Ex: banho, ração, produto, fornecedor...">
-
-        <label>Valor</label>
-        <input id="cvalue" placeholder="Ex: 80,00">
-
-        <label>Data</label>
-        <input type="date" id="cdate">
-
-        <div class="row" style="margin-top:10px">
-          <button class="btn primary" onclick="addCaixa()">Lançar</button>
-          <button class="btn ghost" onclick="go('home')">Voltar</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Lançamentos</h3>
-        <div class="list">
-          ${DB.caixa.slice().reverse().map(x=>`
-            <div class="item">
-              <b>${escapeHtml(x.type)}</b> • R$ ${fmt(Number(x.value||0))}<br>
-              <span class="small">${escapeHtml(x.desc||"")} • ${escapeHtml(x.date||"")}</span>
-            </div>
-          `).join("") || `<div class="small">Sem lançamentos ainda.</div>`}
-        </div>
-      </div>
-    </div>
-  `;
-}
-function addCaixa(){
-  const type = document.getElementById("ctype").value;
-  const desc = (document.getElementById("cdesc").value||"").trim();
-  const valueRaw = (document.getElementById("cvalue").value||"").trim().replace(".","").replace(",",".");
-  const value = Number(valueRaw);
-  if(!desc) return alert("Coloque uma descrição.");
-  if(!Number.isFinite(value)) return alert("Coloque um valor válido.");
-  const date = document.getElementById("cdate").value || "";
-  DB.caixa.push({id:Date.now(), type, desc, value, date});
-  saveDB(); go("caixa");
-}
-
-function screenProducts(){
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <h3>Cadastrar produto</h3>
-        <input id="pname" placeholder="Nome do produto">
-        <div class="row">
-          <div>
-            <label>Preço</label>
-            <input id="pprice" placeholder="Ex: 39,90">
-          </div>
-          <div>
-            <label>Estoque</label>
-            <input id="pqty" placeholder="Ex: 10">
-          </div>
-        </div>
-        <div class="row" style="margin-top:10px">
-          <button class="btn primary" onclick="addProduct()">Salvar</button>
-          <button class="btn ghost" onclick="go('home')">Voltar</button>
-        </div>
-      </div>
-
-      <div class="card">
-        <h3>Estoque</h3>
-        <div class="list">
-          ${DB.products.map(p=>`
-            <div class="item">
-              <b>${escapeHtml(p.name)}</b><br>
-              <span class="small">R$ ${escapeHtml(p.price||"")} • Qtd ${escapeHtml(p.qty||"")}</span>
-            </div>
-          `).join("") || `<div class="small">Sem produtos cadastrados.</div>`}
-        </div>
-      </div>
-    </div>
-  `;
-}
-function addProduct(){
-  const name = (document.getElementById("pname").value||"").trim();
-  if(!name) return alert("Coloque o nome do produto.");
-  DB.products.push({
-    id:Date.now(),
-    name,
-    price:(document.getElementById("pprice").value||"").trim(),
-    qty:(document.getElementById("pqty").value||"").trim()
-  });
-  saveDB(); go("products");
-}
-
-function screenPortal(){
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <h3>Portal do Tutor</h3>
-        <div class="small">
-          Aqui é um modelo simples: o tutor pesquisa pelo telefone e você encontra o cadastro.
-          Depois a gente evolui com login, histórico do pet e avisos automáticos.
-        </div>
-
-        <label>Telefone do tutor</label>
-        <input id="psearch" placeholder="Digite parte do telefone">
-        <div class="row" style="margin-top:10px">
-          <button class="btn primary" onclick="searchTutor()">Buscar</button>
-          <button class="btn ghost" onclick="go('home')">Voltar</button>
-        </div>
-
-        <div id="presult" style="margin-top:12px"></div>
-      </div>
-    </div>
-  `;
-}
-function searchTutor(){
-  const q = (document.getElementById("psearch").value||"").trim();
-  if(!q) return alert("Digite um telefone.");
-  const c = DB.clients.find(x => (x.phone||"").includes(q));
-  const box = document.getElementById("presult");
-  if(!c) return box.innerHTML = `<div class="item">Não encontrado.</div>`;
-  box.innerHTML = `
-    <div class="item">
-      <b>${escapeHtml(c.name)}</b><br>
-      <span class="small">${escapeHtml(c.phone||"")}</span>
-    </div>
-  `;
-}
-
-function screenContent(){
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <h3>Conteúdo educativo (portal)</h3>
-        <div class="small">
-          Aqui fica a ponte pro seu portal de conteúdo. Por enquanto é lista e link.
-          Depois a gente integra por marca, por pacote e por atualização mensal.
-        </div>
-
-        <hr class="sep">
-
-        <div class="list">
-          ${[
-            {t:"🥩 Alimentação", s:"Guias simples e práticos por idade e porte."},
-            {t:"🩺 Doenças comuns", s:"Conteúdo educativo, sem diagnóstico."},
-            {t:"🐕 Guia de raças", s:"Perfil, temperamento, cuidados."},
-            {t:"🎓 Adestramento", s:"Rotina, comportamento, comandos básicos."},
-            {t:"🧼 Higiene e bem-estar", s:"Banho, pele, ouvido, unha."}
-          ].map(x=>`
-            <div class="item">
-              <b>${x.t}</b><br>
-              <span class="small">${x.s}</span>
-            </div>
-          `).join("")}
-        </div>
-
-        <div class="row" style="margin-top:10px">
-          <button class="btn secondary" onclick="alert('Quando você criar o portal, a gente coloca o link aqui.')">Abrir portal</button>
-          <button class="btn ghost" onclick="go('home')">Voltar</button>
-        </div>
-      </div>
-    </div>
-  `;
-}
-
-function screenSettings(){
-  const shop = getShop();
-  const eff = getEffectivePlan();
-
-  screen.innerHTML = `
-    <div class="grid">
-      <div class="card">
-        <h3>Ajustes da Loja</h3>
-        <div class="small">Você pode deixar o sistema com a cara da loja: logo e tema.</div>
-
-        <label>Nome da loja</label>
-        <input id="sname" value="${escapeAttr(shop?.name||"")}" ${!canEditSettings() ? "disabled":""}>
-
-        <label>Telefone comercial</label>
-        <input id="sphone" value="${escapeAttr(shop?.phone||"")}" ${!canEditSettings() ? "disabled":""}>
-
-        <label>Instagram</label>
-        <input id="sinsta" value="${escapeAttr(shop?.instagram||"")}" placeholder="@seuperfil" ${!canEditSettings() ? "disabled":""}>
-
-        <label>Logo (upload)</label>
-        <input type="file" id="slogo" accept="image/*" ${!canEditSettings() ? "disabled":""}>
-
-        <label>Tema</label>
-        <select id="stheme" ${!canEditSettings() ? "disabled":""}>
-          ${THEMES.map(t=>`<option value="${t.id}" ${t.id===shop.themeId ? "selected":""}>${t.name}</option>`).join("")}
-        </select>
-
-        <div class="row" style="margin-top:10px">
-          ${canEditSettings()
-            ? `<button class="btn primary" onclick="saveSettings()">Salvar</button>
-               <button class="btn danger" onclick="removeLogo()">Remover logo</button>`
-            : `<button class="btn primary" onclick="unlockSettings()">Desbloquear</button>
-               <button class="btn ghost" onclick="go('home')">Voltar</button>`
-          }
-        </div>
-
-        <hr class="sep">
-
-        ${isAdmin ? `
-          <h3>Admin (dev)</h3>
-          <div class="small">Aqui você controla plano pago e multi-loja.</div>
-
-          <label>Plano pago (após 15 dias)</label>
-          <select id="paidPlan">
-            ${["BASIC","PRO","PLUS","MASTER"].map(p=>`<option ${p===DB.planPaid?"selected":""}>${p}</option>`).join("")}
-          </select>
-
-          <div class="row" style="margin-top:10px">
-            <button class="btn secondary" onclick="savePaidPlan()">Salvar plano pago</button>
-            <button class="btn ghost" onclick="addShop()">Adicionar loja</button>
-          </div>
-
-          <div class="small" style="margin-top:10px">Trocar loja atual:</div>
-          <div class="row" style="margin-top:6px">
-            ${DB.shops.map(s=>`
-              <button class="btn ghost" onclick="switchShop(${s.id})">🏷️ ${escapeHtml(s.name||("Loja "+s.id))}</button>
-            `).join("")}
-          </div>
-
-          <hr class="sep">
-          <h3>Backup</h3>
-          <div class="small">Copie e cole para salvar ou restaurar. (Pode ficar grande por causa de fotos.)</div>
-          <textarea id="backupBox">${escapeHtml(JSON.stringify(DB, null, 2))}</textarea>
-          <div class="row" style="margin-top:10px">
-            <button class="btn ghost" onclick="copyBackup()">Copiar</button>
-            <button class="btn danger" onclick="restoreBackup()">Restaurar</button>
-          </div>
-        ` : `
-          <div class="small">Plano atual: <b>${eff.plan}</b>. No teste TOP (dias 1 a 3) tudo fica liberado automaticamente.</div>
-        `}
-      </div>
-    </div>
-  `;
-}
-
-let settingsUnlocked = false;
-function canEditSettings(){
-  // Admin sempre pode
-  if(isAdmin) return true;
-  // Cliente: deixa editar se estiver desbloqueado via PIN
-  return settingsUnlocked;
-}
-
-function unlockSettings(){
-  const shop = getShop();
-  const pin = prompt("Digite o PIN da loja para desbloquear ajustes:");
-  if(pin && shop.pin && pin === shop.pin){
-    settingsUnlocked = true;
-    go("settings");
-  }else{
-    alert("PIN inválido.");
-  }
-}
-
-async function saveSettings(){
-  const shop = getShop();
-  shop.name = (document.getElementById("sname").value||"").trim() || shop.name;
-  shop.phone = (document.getElementById("sphone").value||"").trim();
-  shop.instagram = (document.getElementById("sinsta").value||"").trim();
-  shop.themeId = document.getElementById("stheme").value;
-
-  const file = document.getElementById("slogo").files?.[0];
-  if(file){
-    shop.logo = await fileToResizedBase64(file, 420, 0.85);
-  }
-
-  saveDB();
-  applyTheme();
-  go("home");
-}
-
-function removeLogo(){
-  const shop = getShop();
-  shop.logo = null;
-  saveDB();
-  go("settings");
-}
-
-function savePaidPlan(){
-  DB.planPaid = document.getElementById("paidPlan").value;
-  // define/atualiza PIN da loja se não existir
-  const shop = getShop();
-  if(!shop.pin){
-    shop.pin = String(Math.floor(1000 + Math.random()*9000)); // 4 dígitos
-    alert("PIN criado para essa loja: " + shop.pin + " (guarde isso)");
-  }
-  saveDB();
-  go("settings");
-}
-
-function addShop(){
-  const name = prompt("Nome da nova loja:");
-  if(!name) return;
-  const newId = Math.max(...DB.shops.map(s=>s.id)) + 1;
-  DB.shops.push({
-    id:newId,
-    name,
-    phone:"",
-    instagram:"",
-    logo:null,
-    themeId:"cuidado_natural",
-    pin:String(Math.floor(1000 + Math.random()*9000))
-  });
-  saveDB();
-  alert("Loja criada. PIN: " + DB.shops.find(s=>s.id===newId).pin);
-  go("settings");
-}
-function switchShop(id){
-  DB.currentShopId = id;
-  saveDB();
-  settingsUnlocked = false;
-  applyTheme();
-  go("home");
-}
-
-function copyBackup(){
-  const txt = document.getElementById("backupBox").value;
-  navigator.clipboard.writeText(txt);
-  alert("Backup copiado.");
-}
-function restoreBackup(){
-  const txt = document.getElementById("backupBox").value;
-  try{
-    const parsed = JSON.parse(txt);
-    DB = parsed;
-    saveDB();
-    alert("Backup restaurado.");
-    location.reload();
-  }catch(e){
-    alert("JSON inválido.");
-  }
-}
-
-/* =======================
-   UTIL
-======================= */
-function fmt(n){
-  return (Math.round((n + Number.EPSILON) * 100) / 100).toFixed(2).replace(".",",");
-}
-function escapeHtml(s){
-  return String(s||"")
-    .replaceAll("&","&amp;")
-    .replaceAll("<","&lt;")
-    .replaceAll(">","&gt;")
-    .replaceAll('"',"&quot;")
-    .replaceAll("'","&#39;");
-}
-function escapeAttr(s){ return escapeHtml(s).replaceAll("\n"," "); }
-
-/* =======================
-   PWA INSTALL PROMPT
-======================= */
-let deferredPrompt = null;
-function isIOS(){
-  return /iphone|ipad|ipod/i.test(navigator.userAgent);
-}
-function isStandalone(){
-  return window.matchMedia("(display-mode: standalone)").matches || window.navigator.standalone === true;
-}
-function shouldShowInstall(){
-  if(isStandalone()) return false;
-  const dismissedAt = localStorage.getItem("install_dismissed_at");
-  if(dismissedAt){
-    const days = daysBetween(dismissedAt, nowISO());
-    if(days < 3) return false; // some por 3 dias
-  }
-  return true;
-}
-window.addEventListener("beforeinstallprompt", (e)=>{
-  e.preventDefault();
-  deferredPrompt = e;
-  if(shouldShowInstall()) showInstallBanner();
-});
-
-function showInstallBanner(){
-  const b = document.getElementById("installBanner");
-  b.style.display = "block";
-  document.getElementById("btnInstall").style.display = deferredPrompt ? "inline-flex" : "none";
-  document.getElementById("btnIOS").style.display = isIOS() ? "inline-flex" : "none";
-}
-function dismissInstall(){
-  localStorage.setItem("install_dismissed_at", nowISO());
-  document.getElementById("installBanner").style.display = "none";
-}
-async function triggerInstall(){
-  if(!deferredPrompt) return;
-  deferredPrompt.prompt();
-  await deferredPrompt.userChoice;
-  deferredPrompt = null;
-  dismissInstall();
-}
-function showIOSHelp(){
-  const box = document.getElementById("iosHelp");
-  box.style.display = box.style.display === "none" ? "block" : "none";
-}
-
-/* =======================
-   START
-======================= */
-ensureTrial();
-applyTheme();
-buildNav("home");
-setHeader("Painel");
-
-// mostra banner de instalação (iOS) se fizer sentido
-setTimeout(()=>{
-  if(isIOS() && shouldShowInstall()) showInstallBanner();
-}, 1200);
-
-go("home");
-</script>
-
+        `).join('');
+      }
+      
+      const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      document.getElementById('cartTotal').textContent = total.toFixed(2);
+    }
+
+    // Toggle carrinho
+    function toggleCart() {
+      document.getElementById('cartModal').classList.toggle('active');
+    }
+
+    // Checkout
+    function checkout() {
+      if (cart.length === 0) {
+        alert('Carrinho vazio!');
+        return;
+      }
+      
+      const total = cart.reduce((sum, item) => sum + (item.price * item.qty), 0);
+      const items = cart.map(i => `${i.name} (${i.qty}x)`).join(', ');
+      
+      alert(`Pedido confirmado!\n\nItens: ${items}\n\nTotal: R$ ${total.toFixed(2)}\n\nEm breve você receberá um email com os detalhes do pedido.`);
+      
+      cart = [];
+      updateCart();
+      toggleCart();
+    }
+
+    // Inicializar
+    renderProducts();
+    updateCart();
+  </script>
 </body>
 </html>
